@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>새 글 작성 - Team Safe Zone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="posts.html">글 목록</a></li>
+        <li><a href="new-post.html">글 작성</a></li>
+      </ul>
+    </nav>
+
+    <main class="form-container">
+      <h1>새 글 작성</h1>
+      <form id="postForm">
+        <input
+          type="text"
+          id="title"
+          placeholder="제목을 입력하세요"
+          required
+        />
+        <input type="text" id="author" placeholder="작성자 이름" required />
+        <textarea
+          id="content"
+          placeholder="내용을 입력하세요"
+          rows="10"
+          required
+        ></textarea>
+        <button type="submit">글 저장하기</button>
+      </form>
+      <p id="resultMsg"></p>
+    </main>
+
+    <script>
+      document
+        .getElementById('postForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault()
+          const title = document.getElementById('title').value
+          const author = document.getElementById('author').value
+          const content = document.getElementById('content').value
+
+          const newPost = {
+            title,
+            author,
+            content,
+            date: new Date().toLocaleDateString(),
+          }
+          let posts = JSON.parse(localStorage.getItem('posts')) || []
+          posts.unshift(newPost)
+          localStorage.setItem('posts', JSON.stringify(posts))
+
+          document.getElementById('resultMsg').innerText =
+            '글이 저장되었습니다!'
+          document.getElementById('postForm').reset()
+        })
+    </script>
+
+    <footer>
+      <p>© 2025 Team Safe Zone. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
