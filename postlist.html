@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글 목록 - Team Safe Zone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="posts.html">프로젝트 목록</a></li>
+        <li><a href="newpost.html">글 작성</a></li>
+        <li><a href="postlist.html">글 목록</a></li>
+      </ul>
+    </nav>
+
+    <main class="form-container">
+      <h1>글 목록</h1>
+      <div id="postList"></div>
+      <button id="newPostBtn">새 글 작성하기</button>
+    </main>
+
+    <script>
+      // 글 목록 가져오기
+      const postList = document.getElementById('postList')
+      const posts = JSON.parse(localStorage.getItem('posts')) || []
+
+      if (posts.length === 0) {
+        postList.innerHTML = '<p>저장된 글이 없습니다.</p>'
+      } else {
+        posts.forEach((post) => {
+          const postItem = document.createElement('div')
+          postItem.className = 'post-item'
+          postItem.innerHTML = `
+          <h2>${post.title}</h2>
+          <p>작성자: ${post.author}</p>
+          <p>날짜: ${post.date}</p>
+          <hr/>
+        `
+          postList.appendChild(postItem)
+        })
+      }
+
+      document
+        .getElementById('newPostBtn')
+        .addEventListener('click', function () {
+          window.location.href = 'newpost.html'
+        })
+    </script>
+
+    <footer>
+      <p>© 2025 Team Safe Zone. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
