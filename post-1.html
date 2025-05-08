@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML, CSS, JavaScript란? - Team Safe Zone</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .tech-images {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 40px 0;
+        gap: 20px;
+      }
+
+      .tech-card {
+        text-align: center;
+        max-width: 200px;
+      }
+
+      .tech-card img {
+        width: 100px;
+        height: auto;
+      }
+
+      .tech-card p {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #007acc;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="posts.html">글 목록</a></li>
+      </ul>
+    </nav>
+
+    <main class="post-detail">
+      <h1>HTML, CSS, JavaScript란?</h1>
+      <p class="meta">2025년 5월 6일 · 어영민</p>
+
+      <p>
+        <strong>HTML</strong>은 웹 페이지의 구조를 구성하는 마크업 언어입니다.
+        제목, 문단, 이미지, 링크 등 콘텐츠 요소들을 배치하는 데 사용됩니다.
+      </p>
+      <p>
+        <strong>CSS</strong>는 HTML로 구성된 페이지에 스타일을 적용하는
+        언어입니다. 색상, 크기, 폰트, 여백, 정렬 등 시각적인 요소를 지정할 수
+        있습니다.
+      </p>
+      <p>
+        <strong>JavaScript</strong>는 사용자 상호작용, 동적 데이터 처리, 화면
+        전환, API 요청 등 기능을 구현하는 프로그래밍 언어입니다.
+      </p>
+      <p>
+        이 세 가지 기술은 각각 구조(HTML), 스타일(CSS), 동작(JavaScript)을
+        담당하며, 함께 사용되어 웹사이트를 완성합니다.
+      </p>
+
+      <div class="tech-images">
+        <div class="tech-card">
+          <img src="html.png" alt="HTML 로고" />
+          <p>HTML</p>
+        </div>
+        <div class="tech-card">
+          <img src="css.png" alt="CSS 로고" />
+          <p>CSS</p>
+        </div>
+        <div class="tech-card">
+          <img src="javascript.png" alt="JavaScript 로고" />
+          <p>JavaScript</p>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Team Safe Zone. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
